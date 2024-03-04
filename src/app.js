@@ -1,11 +1,30 @@
-/* eslint-disable */
-import "bootstrap";
 import "./style.css";
+import "./index.html";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+window.onload = () => {
+  document.querySelector("#btn").addEventListener("click", () => {
+    document.querySelector("#my-excuse").innerHTML = generateExcuse();
+  });
+};
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+let generateExcuse = () => {
+  let pronoun = ["The", "A"];
+  let subject = ["Lady", "Fool", "Officer", "Bull", "Soldier"];
+  let action = ["Burn my", "Took my", "Arrest my", "Look at"];
+  let what = ["Kid", "Scooter", "Me", "Drivers License"];
+
+  let pronounIndex = Math.floor(Math.random() * pronoun.length);
+  let subjectIndex = Math.floor(Math.random() * subject.length);
+  let actionIndex = Math.floor(Math.random() * action.length);
+  let whatIndex = Math.floor(Math.random() * what.length);
+
+  return (
+    pronoun[pronounIndex] +
+    "" +
+    subject[subjectIndex] +
+    "" +
+    action[actionIndex] +
+    "" +
+    what[whatIndex]
+  );
 };
